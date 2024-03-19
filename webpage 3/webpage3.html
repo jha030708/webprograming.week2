@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 맞추기 게임</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        #game {
+            width: 300px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        #target {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        #guess {
+            width: 100px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        #result {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>숫자 맞추기 게임</h1>
+
+    <div id="game">
+        <p id="target">랜덤 숫자를 생성중...</p>
+        <input type="number" id="guess">
+        <button id="button" onclick="checkGuess()">확인</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        let target = Math.floor(Math.random() * 100) + 1;
+
+        function checkGuess() {
+            let guess = parseInt(document.getElementById('guess').value);
+            let result = document.getElementById('result');
+
+            if (guess === target) {
+                result.textContent = "정답입니다!";
+                generateNewTarget();
+            } else if (guess < target) {
+                result.textContent = "더 큰 숫자를 입력하세요.";
+            } else {
+                result.textContent = "더 작은 숫자를 입력하세요.";
+            }
+        }
+
+        function generateNewTarget() {
+            target = Math.floor(Math.random() * 100) + 1;
+            result.textContent = "랜덤 숫자를 생성중...";
+            document.getElementById('guess').value = "";
+        }
+    </script>
+</body>
+</html>
