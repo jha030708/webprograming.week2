@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>구구단 출력기</title>
+</head>
+<body>
+<p>Click button! </p>
+<div class="container">
+    <button onclick="printGugudan(1)">1단</button>
+    <button onclick="printGugudan(2)">2단</button>
+    <button onclick="printGugudan(3)">3단</button>
+    <button onclick="printGugudan(4)">4단</button>
+    <button onclick="printGugudan(5)">5단</button>
+    <button onclick="printGugudan(6)">6단</button>
+    <button onclick="printGugudan(7)">7단</button>
+    <button onclick="printGugudan(8)">8단</button>
+    <button onclick="printGugudan(9)">9단</button>
+
+    <div class="result" id="gugudanOutput"></div>
+</div>
+
+<script>
+    function printGugudan(n) {
+        var output = '';
+        for (var i = 1; i <= 9; i++) {
+            output += n + ' × ' + i + ' = ' + (n * i) + '<br>';
+        }
+        document.getElementById('gugudanOutput').innerHTML = output;
+    }
+</script>
+
+</body>
+</html>
+
